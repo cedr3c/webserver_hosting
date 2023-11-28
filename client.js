@@ -34,7 +34,7 @@ app.post('/upload', upload.single('file'), function (req, res, next) {
 })
 
 app.post('/submitForm', function (req, res) {
-  var username = req.body.fname;
+  var username = req.body.name;
   var filename = "Nachricht_von_" + username + ".txt";
   var inputs = Object.values(req.body);
   var labels = Object.keys(req.body);
