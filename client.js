@@ -54,6 +54,31 @@ app.post('/submitForm', function (req, res) {
   `);
 });
 
+//Ordner auslesen S
+
+// index.js
+app.get("/", (req, res) => {
+  // Pfad des Ordners, dessen Dateien aufgelistet werden sollen
+  const folderPath = "public";
+
+  // Dateien im Ordner lesen
+  fs.readdir(folderPath, (err, files) => {
+    if (err) {
+      // Fehlermeldung senden, wenn ein Fehler auftritt
+      res.status(500).send("Es ist ein Fehler beim Lesen des Ordners aufgetreten.");
+    } else {
+      // Dateien als HTML-Liste formatieren
+      let fileList = "<ul>";
+      for (let file of files) {
+        fileList += `<li><a href="/${file}">${file}</a></li>`;
+      }
+      fileList += "</ul>";
+
+      // Dateiliste als Antwort senden
+      res.send
+
+//Ordner auslesen E
+
 app.listen(3000, function () {
   console.log('App läuft auf Port 3000');
 });
